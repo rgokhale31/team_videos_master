@@ -1,0 +1,30 @@
+.app {
+    width: 100vw;
+    height: 100vh;
+}
+
+h1 {
+	font-family: 'Merriweather', serif;
+	font-weight: 700;
+    font-size: 50px;
+    margin-left: 20px;
+}
+
+h6 {
+	font-family: 'Assistant', sans-serif;
+    margin-left: 20px;
+}
+
+#uploadBtn {
+    width: 90px;
+}
+#cameraBtn {
+    width: 100px;
+}
+
+#uploadBtn:active {
+    width: 80px;
+}
+#cameraBtn:active {
+    width:  90px;
+}

@@ -1,0 +1,35 @@
+<div class="row valign-wrapper center-align" id="profile-row">
+	<div class="col s3">
+		<img onerror="this.src='assets/img/anon_user.jpg'" class="circle hoverable propic" src="assets/img/{{ user.split(' ').join('') }}.jpg" >
+	</div>
+	<div class="col s9">
+		<h5 style="margin-top: 0px; margin-bottom: 0px;" class="left-align main-color-text">Welcome, {{user.split(' ')[0]}}!</h5>
+		<h6 style="margin-top: 0px; margin-bottom: 0px; font-weight: lighter;" class="grey-text left-align truncate">Choose a video from the list below:</h6>
+	</div>
+</div>
+<div class="divider"></div>
+
+<div class="input-field col s12 hide-on-small-only">
+	<input (keyup)="searchVideos($event)" style="margin-bottom: 15px; border-radius: 10px; border-bottom: none;" placeholder=" &nbsp; 🔍 Search Videos" id="video_search" type="text" class="validate grey lighten-4">
+</div>
+
+<table id="video-list" class="bordered">
+	<tbody>
+		<tr *ngFor="let video of videos; let i = index" id="{{video.youtube_id}}" (click)="updateIframe($event)">
+			<td class="center-align hide-on-small-only" style="width: 30%; min-width: 75px; padding-left: 16.250px">
+				<img onerror="this.src='https://c1.staticflickr.com/5/4431/36378105863_0faac3ed23_b.jpg'" src="../uploads/thumbnails/{{video.youtube_id | slice:0:-4}}-thumbnail-320x240-0001.png" id="youtube_icon_{{i}}" class="thumbnail hoverable">
+			</td>
+			<td class="video_title left-align" style="padding-right: 22px">
+				<p class="video-title" style="margin-bottom: 0"><b>{{ video.title }}</b></p>
+				<p class="truncate grey-text" style="margin-top: 0; font-weight: 300;">{{ video.date }} &nbsp; • &nbsp;  #{{ video.tag }}</p>
+			</td>
+			<td class="center-align" style="width: 7%; padding-right: 16.250px">
+				<font style="font-size: 32px; color: #1976d2;">•</font>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="col s12 left-align">
+	<p class="grey-text" style="font-weight: 300;">Download <a href="#">TeamPracticeVideos</a> on your iPhone or Android to record and automatically upload practice videos here.</p>
+</div>

@@ -1,0 +1,75 @@
+table {
+	width: calc(100% + 22.50px);
+	margin-left: -11.250px;
+	margin-right: -11.250px;
+	padding-left: 11.250px;
+	padding-right: 11.250px;
+}
+
+table tr:first-child {
+	border-top: 1px solid #D0D0D0;
+}
+
+td {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+input:focus {
+  border-bottom: 0px solid black !important;
+  -webkit-box-shadow: 0 0px 0 0 black !important;
+  -moz-box-shadow: 0 0px 0 0 black !important;
+  box-shadow: 0 0px 0 0 black !important;
+}
+tr:hover {
+	cursor: pointer;
+	background-color: #f5f5f5;
+}
+tr:active {
+	cursor: pointer;
+	background-color: #eeeeee;
+}
+
+h6 {
+	font-family: 'Assistant', sans-serif;
+	font-weight: 300;
+	line-height: 30px;
+	font-size: 15px;
+	margin-top: 0;
+	padding-right: 11.250px;
+}
+a,
+.blue-text {
+	cursor: pointer;
+	color: #0084FF !important;
+}
+
+.propic {
+	max-width: 65px;
+	padding: 2px;
+	border: 2px solid #00bfa5;
+	border-radius: 50%;
+}
+
+.thumbnail {
+	padding-top: 0px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	padding-bottom: 0px !important;
+	margin-top: 6px;
+	width: 100%;
+}
+
+.row {
+	margin-bottom: 0;
+}
+.video_title {
+	padding-left: 15px;
+}
+.youtube-text {
+	color: #FF0000;
+}
+
+#profile-row {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}

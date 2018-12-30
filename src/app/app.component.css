@@ -1,0 +1,29 @@
+#video-list-sidebar,
+#video-and-comments-section,
+#video-actions-section {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	height: 96vh;
+	padding-bottom: 50px;
+}
+
+#video-list-sidebar,
+#video-and-comments-section {
+	border-right: 1px solid #D0D0D0;
+}
+
+h6 {
+	font-family: 'Assistant', sans-serif;
+	font-weight: 300;
+	line-height: 30px;
+	font-size: 18px;
+}
+
+.blue-text {
+	cursor: pointer;
+	color: #0084FF !important;
+}
+
+.row {
+	margin-bottom: 0;
+}

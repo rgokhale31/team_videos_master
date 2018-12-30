@@ -1,0 +1,77 @@
+<br>
+<h5 style="margin-bottom: 0px;" class="center-align main-color-text">{{ video_title }}</h5>
+<h6 style="margin-top: 0px;" class="grey-text center-align truncate">{{ video_view_count }} views &nbsp; <font class="grey-text">•</font> &nbsp;  Uploaded {{ video_date }}</h6>
+<br>
+
+<div class="divider"></div>
+
+<div class="row">
+  <ul class="tabs">
+    <li class="tab col s6"><a class="active main-color-text" href="#viewers">Viewed By ({{video_viewers.length}})</a></li>
+    <li class="tab col s6"><a class="main-color-text" href="#playlists">Save to...</a></li>
+  </ul>
+</div>
+
+<div class="row" id="viewers">
+	<div *ngIf="video_viewers.length < 3" class="col s12 center-align">
+		<p class="grey-text" style="font-weight: 300; margin-top: 0px;">Once more of your team watches this video, you'll be able to see stats about your viewers here.</p>
+	</div>
+
+	<table *ngIf="video_viewers.length >= 3">
+		<tbody>
+			<tr *ngFor="let video_viewer of video_viewers">
+				<td class="left-align hide-on-small-only" style="width: 18%;">
+					<img onerror="this.src='assets/img/anon_user.jpg'" class="circle hoverable" src="assets/img/{{ video_viewer.split(' ').join('') }}.jpg">
+				</td>
+				<td class="black-text left-align" style="width: 75%;">
+					<p class="viewer">{{ video_viewer }}</p>
+				</td>
+				<td class="right-align" style="width: 12%;">
+					<i class="material-icons">expand_more</i>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="row" id="playlists">
+	<table id="actions-table">
+		<tbody>
+			<tr (click)="playlistToggle($event)">
+				<td class="center-align hide-on-small-only" style="width: 10%;">
+					<i class="material-icons grey-text left" style="margin-top: 0px">check_box_outline_blank</i>
+				</td>
+				<td class="black-text left-align">
+					<p class="truncate">Favorites</p>
+				</td>
+			</tr>
+
+			<tr (click)="playlistToggle($event)">
+				<td class="center-align hide-on-small-only" style="width: 10%;">
+					<i class="material-icons grey-text left" style="margin-top: 0px">check_box_outline_blank</i>
+				</td>
+				<td class="black-text left-align">
+					<p class="truncate">Videos of Me</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="center-align hide-on-small-only" style="width: 10%;">
+					<i class="material-icons grey-text left" style="margin-top: -15px">add</i>
+				</td>
+				<td class="black-text left-align">
+					<div class="input-field">
+						<input autocomplete="off" (focus)="showCreateButtons()" placeholder="Create new playlist" id="playlist_name" type="text" class="validate">
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<button type="button" id="createPlaylist" class="btn white secondary-color-text z-depth-0 right">
+		Create
+	</button>
+	<button type="button" id="cancelPlaylist" class="btn white red-text z-depth-0 right" (click)="hideCreateButtons()">
+		Cancel
+	</button>
+</div>

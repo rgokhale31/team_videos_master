@@ -1,0 +1,34 @@
+{
+  "name": "dmak_practice_videos",
+  "version": "0.0.0",
+  "description": "Penn Dhamaka practice video manager",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "11.0.0",
+    "npm": "6.4.1"
+  },
+  "author": "Eash Aggarwal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongojs": "^2.6.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eash268/dmakvids.git"
+  },
+  "keywords": [
+    "video"
+  ],
+  "bugs": {
+    "url": "https://github.com/eash268/dmakvids/issues"
+  },
+  "homepage": "https://github.com/eash268/dmakvids#readme"
+}

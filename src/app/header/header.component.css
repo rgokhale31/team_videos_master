@@ -1,0 +1,50 @@
+nav {
+	/*background-color: #011F5B; supreme #E91301; facebook #28487D;*/
+    background-color: #4267B2;
+    border-bottom: 1px solid #28487D;
+    height: 43px;
+    line-height: 43px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 43px;
+    line-height: 43px;
+}
+
+nav .button-collapse i {
+    height: 43px;
+    line-height: 43px;
+}
+
+nav .brand-logo { 
+    font-size: 1.6rem; 
+}
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 43px;
+        line-height: 43px;
+    }
+}
+
+img {
+    width: 32px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 6px;
+}
+
+i {
+    padding-left: 10px;
+    margin-right: 10px !important;
+    color: #0F1524;
+}
+
+.icon-color {
+    color: #0F1524;
+}
+
+.brand-logo {
+    font-family: 'Merriweather', serif;
+	font-weight: 700;
+}

@@ -1,0 +1,99 @@
+a {
+	color: #0084FF;
+}
+
+a:hover {
+	font-color: #9e9e9e;
+	font-weight: 500;
+}
+
+table {
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 95%;
+}
+
+td {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+h4 {
+	font-family: 'Assistant', sans-serif;
+	padding-right: 11.250px;
+}
+
+h5 {
+	font-family: 'Assistant', sans-serif;
+	margin-bottom: 0;
+	padding-right: 11.250px;
+}
+
+p {
+	padding-right: 11.250px;
+}
+
+h6 {
+	font-family: 'Assistant', sans-serif;
+	font-weight: 300;
+	line-height: 30px;
+	font-size: 15px;
+	margin-top: 0;
+	padding-right: 11.250px;
+}
+
+img {
+	width: 85%;
+	max-width: 27px;
+	margin-top: 10px;
+}
+
+i {
+	margin-top: 10px;
+}
+
+.sq_img {
+	margin-top: 6px;
+	width: 20px;
+}
+
+.highlight {
+	cursor: pointer;
+}
+
+.label {
+	cursor: pointer;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+.truncate {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+.viewer{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#actions-table tr {
+	cursor: pointer;
+}
+
+#cancelPlaylist {
+	display: none;
+	margin-top: -5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#createPlaylist {
+	display: none;
+	margin-top: -5px;
+	padding-left: 10px;
+	padding-right: 25px;
+}
+
+.input-field {
+	margin-top: 0px;
+}
