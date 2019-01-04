@@ -14,6 +14,7 @@ import { VideoIframeComponent } from './videos/video-iframe/video-iframe.compone
 import { VideoThumbnailsComponent } from './videos/video-thumbnails/video-thumbnails.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
     CommentListComponent,
     FooterComponent,
     HeaderComponent,
+    LoginComponent,
     VideoAnalyticsComponent,
     VideoListComponent,
     VideoIframeComponent,
