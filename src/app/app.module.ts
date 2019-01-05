@@ -15,7 +15,7 @@ import { VideoThumbnailsComponent } from './videos/video-thumbnails/video-thumbn
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
-
+ 
 
 @NgModule({
   declarations: [
