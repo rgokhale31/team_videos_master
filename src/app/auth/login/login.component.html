@@ -1,17 +1,21 @@
-<html>
-<head>
-<title>Login Page</title>
-</head>
-<body>
-<div class="row">
-	<form autocomplete="off" #commentForm="ngForm"> 
-		<div class="input-field autocomplete col s11">
-			<input id="myInput" type="email" placeholder="E-Mail" autocomplete="off">
-			<input type="password" placeholder="Enter Password" autocomplete="off">
-			<button class="btn white secondary-color-text z-depth-0" type="submit" id="submit-button">Login</button>
-		</div>
-	</form>
-</div>
-</body>
-</html>
+<main>
+	<div class="row">
+		<div class="card col s4 push-s4 center z-depth-3">
 
+			<img class="center-align" src="https://png.pngtree.com/svg/20161229/_username_login_1172579.png">
+
+			<form autocomplete="off" #commentForm="ngForm"> 
+				<div class="input-field autocomplete col s10 push-s1">
+					<input id="myInput" type="email" placeholder="E-Mail Address" autocomplete="off">
+				</div>
+				<div class="input-field autocomplete col s10 push-s1">
+					<input type="password" placeholder="Password" autocomplete="off">
+				</div>
+				<div class="input-field autocomplete col s10 push-s1">
+					<br>
+					<button class="btn white secondary-color-text right" type="submit" id="submit-button">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</main>
