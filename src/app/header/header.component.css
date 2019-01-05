@@ -1,5 +1,5 @@
 nav {
-	/*background-color: #011F5B; supreme #E91301; facebook #28487D;*/
+	/*background-color: #011F5B; #25519E; supreme #E91301; facebook #4267B2;*/
     background-color: #4267B2;
     border-bottom: 1px solid #28487D;
     height: 43px;
@@ -28,10 +28,10 @@ nav .brand-logo {
 }
 
 img {
-    width: 32px;
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 6px;
+    width: 25px;
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 i {
