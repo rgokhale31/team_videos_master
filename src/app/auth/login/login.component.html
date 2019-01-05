@@ -1,15 +1,16 @@
+
 <main>
 	<div class="row">
 		<div class="card col s4 push-s4 center z-depth-3">
 
 			<img class="center-align" src="https://png.pngtree.com/svg/20161229/_username_login_1172579.png">
 
-			<form autocomplete="off" #commentForm="ngForm"> 
+			<form (submit)="onLogin(loginForm)" autocomplete="off" #loginForm="ngForm"> 
 				<div class="input-field autocomplete col s10 push-s1">
-					<input id="myInput" type="email" placeholder="E-Mail Address" autocomplete="off">
+					<input name="email" ngModel type="email" placeholder="E-Mail Address" #emailInput="ngModel">
 				</div>
 				<div class="input-field autocomplete col s10 push-s1">
-					<input type="password" placeholder="Password" autocomplete="off">
+					<input name="password" ngModel type="password" placeholder="Password" #passwordInput="ngModel">
 				</div>
 				<div class="input-field autocomplete col s10 push-s1">
 					<br>
