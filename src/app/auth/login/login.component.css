@@ -1,13 +1,15 @@
-textarea {
-	padding-bottom: 0;
+.row {
+	height: 95vh;
+	background: url('https://neuroflowlive.com/static/img/bg1_50.235e3b76d8f3cefe13ae56b6a1e154c7.png') no-repeat center center fixed;
+	background-size: cover;
 }
 
-button {
-	float: right;
+.card {
+	top: 10%;
+	padding-bottom: 70px;
 }
 
 img {
-	width: 85%;
-	max-width: 45px;
-	margin-top: 20px;
+	width: 75px;
+	margin-top: 40px;
 }
