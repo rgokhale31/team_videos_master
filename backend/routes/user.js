@@ -8,9 +8,4 @@ var db = mongojs('mongodb://eash:Issiutng123@ds017514.mlab.com:17514/dmakvids201
 
 });*/
 
-
-
-
-
-
 module.exports = router; 

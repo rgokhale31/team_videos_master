@@ -61,19 +61,24 @@ export class MainComponent implements OnInit {
 	    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 	}
 
+	loginRedirect() {
+		document.location.href = '/login';
+	}
+
 	nameInput() {
 	    var person = prompt("Please enter your full name:", "Shreyas Kudrimoti");
 	    if ( !this.team.includes(person) ) {
 	        this.nameInput();
     	} else {
     		this.setCookie("user", person, 100);
-    		window.location.reload();
+    		document.location.reload();
     	}
 	}
 
 	ngOnInit() {
 		if (this.getCookie("user") == "") {
-			this.nameInput();
+			this.loginRedirect();
+			return;
 		} else {
 			this.user = this.getCookie("user");
 			console.log(this.user);
