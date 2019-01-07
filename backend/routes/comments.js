@@ -9,7 +9,7 @@ function formatAtandLinks(words) {
 	for (var j = 0; j < words.length; j++) {
 		if (words[j].slice(0,4) == 'www.') {
 			words[j] = '<a href=\'http://' + words[j] + '\' target=\'_blank\' class=\'blue-text text-darken-2\'>' + words[j] + '</a>';
-		} else if (words[j].indexOf('@') > -1 ||  words[j].substr(words[j].length - 4) == '.com') {
+		} else if (words[j].indexOf('@') > -1 || words[j].indexOf('#') > -1 ||  words[j].substr(words[j].length - 4) == '.com') {
 			if (isNaN(words[j][1])) {
 				words[j] = '<font class=\'blue-text text-darken-2 light-blue lighten-5\'>' + words[j] + '</font>';
 			} else {
