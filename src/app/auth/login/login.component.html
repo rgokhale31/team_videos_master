@@ -1,0 +1,26 @@
+
+<main>
+	<div class="row">
+		<div class="card col s4 push-s4 center z-depth-3">
+
+			<img class="center-align" src="assets/img/logo_long.png">
+
+			<form (submit)="onLogin(loginForm)" autocomplete="off" #loginForm="ngForm"> 
+				<div class="input-field autocomplete col s5 push-s1">
+					<input name="first_name" type="text" placeholder="First Name" ngModel #firstNameInput="ngModel">
+				</div>
+				<div class="input-field autocomplete col s5 push-s1">
+					<input name="last_name" type="text" placeholder="Last Name" ngModel #lastNameInput="ngModel">
+				</div>
+
+				<div class="input-field autocomplete col s10 push-s1">
+					<input name="password" ngModel type="password" placeholder="Enter Password" #passwordInput="ngModel">
+				</div>
+				<div class="input-field col s10 push-s1">
+					<br>
+					<button class="btn white secondary-color-text right" type="submit" id="submit-button">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</main>

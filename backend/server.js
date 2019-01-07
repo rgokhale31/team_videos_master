@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 var comments = require('./routes/comments');
 var videos = require('./routes/videos');
+var user = require('./routes/user');
 
 var app = express();
 app.use(function(req, res, next) {
@@ -29,6 +30,7 @@ app.use('/', express.static(path.join(__dirname, "angular")));
 // Routes
 app.use('/api/comments', comments);
 app.use('/api/videos', videos);
+app.use('/api/user', user);
 
 app.use((req, res, next) => {
 	res.sendFile(path.join(__dirname, "angular", "index.html"));
