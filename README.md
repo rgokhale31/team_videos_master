@@ -1,10 +1,10 @@
 # Team Videos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2. Team Videos is a Front-End, Backend, Mobile: MEAN stack application for instant uploading and viewing of Penn Dhamaka practice videos.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `node backend/server.js` to set up a dev backend server on port 3000. Note that this page at `http://localhost:3000/` will not compile unless you run `ng build --prod` before launching the server. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/` with the backend already running. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -24,4 +24,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md). Email eash@sas.upenn.edu with further inquiries.
