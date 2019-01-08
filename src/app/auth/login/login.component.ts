@@ -32,10 +32,26 @@ export class LoginComponent implements OnInit {
 	    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 	}
 
+	authenticate(person, pwd) {
+		var PIN1 = person.split(' ')[0][0].toLowerCase().charCodeAt(0) - 96;
+		var PIN2 = person.split(' ')[1][0].toLowerCase().charCodeAt(0) - 96;
+		var KEY = "999penn_dhamakaXkCd" + PIN1 + PIN2;
+		if (pwd === KEY) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	onLogin(form: NgForm) {
 		var person = form.value.first_name.trim() + ' ' + form.value.last_name.trim();
-		this.setCookie("user", person, 100);
-		document.location.href = '/';
+		var auth = this.authenticate(person, form.value.password.trim());
+		if (auth) {
+			this.setCookie("user", person, 100);
+			document.location.href = '/';
+		} else {
+			alert("nah");
+		}
 	}
 
 	ngOnInit() {

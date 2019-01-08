@@ -15,57 +15,71 @@
 	</div>
 
 	<div class="row comment-row" #elseBlock *ngFor="let comment of comments; let i = index">
+		<div class="row right" id="comment-actions-{{i}}" style="margin-top: -40px; margin-bottom: 0px; padding-right: 25px; display: none;">
+			<a href="#" id="reply-row-button-{{i}}" (click)="showReplyRow(i)">
+				<div class="chip white secondary-color-text" style="border: 1px solid #D0D0D0;">
+				<i class="icon-reply"></i>
+				&nbsp;
+				Reply
+				</div>
+			</a>
+			<a href="#" (click)="onDeleteComment(comment._id)">
+				<div class="chip white red-text" style="border: 1px solid #D0D0D0;" *ngIf="comment.author == user">
+				<i class="icon-trash"></i>
+				&nbsp;
+				Delete
+				</div>
+			</a>
+		</div>
 		<div class="col s1 center-align">
 			<img onerror="this.src='assets/img/anon_user.jpg'" class="circle hoverable" src="assets/img/{{ comment.author.split(' ').join('') }}.jpg">
 		</div>
 
-		<div class="col xl10 l11 m11 s11" style="padding-left: 0">
+		<div class="col xl10 l11 m11 s11" on-mouseover="showCommentActions(i)" style="padding-left: 0;">
 			<b>{{ comment.author }} &nbsp; <font class="grey-text" style="font-weight: 300">{{ comment.timestamp }}</font></b>
 			<p class="comment" (click)="timestampCheck($event)" [innerHTML]="comment.content"></p>
 
 			<div class="row grey-text comment-actions-row">
-					<div [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction light-blue lighten-5' : 'reaction'" (click)="clickedSize(comment._id, 'thumbs_up')">
+					<div [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'thumbs_up')">
 						<font class="chee-grow">👍🏽</font>
 						<font [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction-count black-text' : 'reaction-count'">
 							{{ comment.reactions.thumbs_up.length }}
 						</font>
 					</div>
 
-					<div [className]="comment.reactions.heart.includes(user) ? 'reaction light-blue lighten-5' : 'reaction'" (click)="clickedSize(comment._id, 'heart')">
+					<div [className]="comment.reactions.heart.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'heart')">
 						<font class="chee-grow">💙</font>
 						<font [className]="comment.reactions.heart.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
 							{{ comment.reactions.heart.length }}
 						</font>
 					</div>
 
-					<div [className]="comment.reactions.laughing.includes(user) ? 'reaction light-blue lighten-5' : 'reaction'" (click)="clickedSize(comment._id, 'laughing')">
+					<div [className]="comment.reactions.laughing.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'laughing')">
 						<font class="chee-grow">😂</font>
 						<font [className]="comment.reactions.laughing.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
 							{{ comment.reactions.laughing.length }}
 						</font>
 					</div>
 
-					<div [className]="comment.reactions.eggplant.includes(user) ? 'reaction light-blue lighten-5' : 'reaction'" (click)="clickedSize(comment._id, 'eggplant')">
+					<div [className]="comment.reactions.eggplant.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'eggplant')">
 						<font class="chee-grow">🍆</font>
 						<font [className]="comment.reactions.eggplant.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
 							{{ comment.reactions.eggplant.length }}
 						</font>
 					</div>
 
-					<div [className]="comment.reactions.party.includes(user) ? 'reaction light-blue lighten-5' : 'reaction'" (click)="clickedSize(comment._id, 'party')">
+					<div [className]="comment.reactions.party.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'party')">
 						<font class="chee-grow">🎉</font>
 						<font [className]="comment.reactions.party.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
 							{{ comment.reactions.party.length }}
 						</font>
 					</div>
 
+					<!--
 					<div class="reaction-no-emoji">
 						<a href="#" class="secondary-color-text" id="reply-row-button-{{i}}" (click)="showReplyRow(i)">REPLY</a>
 					</div>
-
-					<div class="reaction-no-emoji" *ngIf="comment.author == user">
-						<a href="#" class="red-text" (click)="onDeleteComment(comment._id)">DELETE</a>
-					</div>
+					-->
 			</div>
 
 			<div class="row thread-row" *ngFor="let reply of comment.thread">
@@ -89,10 +103,10 @@
 					</div>
 
 					<div class="right-align col s12">
-						<button id="cancelReplyBtn" class="btn white red-text z-depth-0" (click)="hideReplyRow(i)">
+						<a id="cancelReplyBtn" class="btn red-text z-depth-0" (click)="hideReplyRow(i)">
 							Cancel
-						</button>
-						<button id="replyBtn" class="btn white secondary-color-text z-depth-0" type="submit">
+						</a>
+						<button type="submit" id="replyBtn" class="btn secondary-color-text z-depth-0">
 							Reply
 						</button>
 					</div>
