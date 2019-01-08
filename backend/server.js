@@ -1,41 +1,52 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
+const app = require("./app");
+const debug = require("debug")("node-angular");
+const http = require("http");
 
-var comments = require('./routes/comments');
-var videos = require('./routes/videos');
-var user = require('./routes/user');
+const normalizePort = val => {
+  var port = parseInt(val, 10);
 
-var app = express();
-app.use(function(req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	next();
-});
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
 
-// View Engine
-//app.set('views', path.join(__dirname, 'views/'));
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+  if (port >= 0) {
+    // port number
+    return port;
+  }
 
-// Set Static Folder
-app.use(express.static(path.join(__dirname, 'client')));
+  return false;
+};
 
-// Body Parser 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended : false}));
-app.use('/uploads', express.static(path.join(__dirname, "uploads")));
-app.use('/', express.static(path.join(__dirname, "angular")));
+const onError = error => {
+  if (error.syscall !== "listen") {
+    throw error;
+  }
+  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  switch (error.code) {
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
+      process.exit(1);
+      break;
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+};
 
-// Routes
-app.use('/api/comments', comments);
-app.use('/api/videos', videos);
-app.use('/api/user', user);
+const onListening = () => {
+  const addr = server.address();
+  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  debug("Listening on " + bind);
+};
 
-app.use((req, res, next) => {
-	res.sendFile(path.join(__dirname, "angular", "index.html"));
-});
+const port = normalizePort(process.env.PORT || "8081");
+app.set("port", port);
 
-app.listen(3000, function() {
-	console.log('Server started on port 3000');
-});
+const server = http.createServer(app);
+server.on("error", onError);
+server.on("listening", onListening);
+server.listen(port);
