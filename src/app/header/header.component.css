@@ -40,8 +40,8 @@ i {
     color: #0F1524;
 }
 
-.icon-color {
-    color: #0F1524;
+li > a {
+    height: 42px;
 }
 
 .brand-logo {
