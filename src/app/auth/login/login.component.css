@@ -16,6 +16,14 @@ input:focus {
 	padding-bottom: 70px;
 }
 
+#error {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	display: none;
+}
+
 img {
 	width: 80%;
 	margin-top: 40px;

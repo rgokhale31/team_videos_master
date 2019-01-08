@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 			this.setCookie("user", person, 100);
 			document.location.href = '/';
 		} else {
-			alert("nah");
+			document.getElementById("error").style.display = "block";
 		}
 	}
 
