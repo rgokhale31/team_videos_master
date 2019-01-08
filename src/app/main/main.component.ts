@@ -75,6 +75,11 @@ export class MainComponent implements OnInit {
     	}
 	}
 
+	toggleVideo() {
+		var video = document.getElementsByTagName("video")[0];
+		video.style.display = "none";
+	}
+
 	ngOnInit() {
 		if (this.getCookie("user") == "") {
 			this.loginRedirect();

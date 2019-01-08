@@ -56,6 +56,10 @@ export class CommentListComponent implements OnInit {
 		this.commentService.addReaction(id, reaction);
 	}
 
+	showCommentActions(commentId) {
+		document.getElementById( 'comment-actions-' + commentId ).style.display = 'block';
+	}
+
 	timestampCheck(ev) {
 		if ( ev.target.classList.contains("timestamp") ) {
 			var timestamp = ev.target.innerHTML.slice(1);

@@ -36,7 +36,7 @@ input:focus {
 .reaction {
 	cursor: pointer;
 	float: left;
-	margin-right: 18px;
+	margin-right: 7px;
 	padding-left: 3px;
 	padding-right: 5px;
 	border: 1px solid #D0D0D0;
@@ -55,6 +55,10 @@ input:focus {
     transform: scale(1.1);
 }
 
+.reacted {
+	border: 1px solid #4267B2 !important;
+}
+
 .reaction-no-emoji {
 	cursor: pointer;
 	float: left;
@@ -64,9 +68,14 @@ input:focus {
 }
 
 .comment-row {
-	margin-bottom: 5px;
+	padding-bottom: 5px;
 	border-bottom: 1px dotted #D0D0D0;
-	margin-top: 30px;
+	padding-top: 30px;
+	margin-bottom: 0px;
+}
+
+.comment-row:hover {
+	background-color: #fafafa;
 }
 
 .comment-actions-row {
@@ -101,9 +110,11 @@ input:focus {
 #replyBtn {
 	padding-left: 16px;
 	padding-right: 0px;
+	background-color: transparent !important;
 }
 
 #cancelReplyBtn {
 	padding-left: 16px;
 	padding-right: 16px;
+	background-color: transparent !important;
 }

@@ -1,3 +1,10 @@
+input:focus {
+  border-bottom: 1px solid #0084FF !important;
+  -webkit-box-shadow: 0 1px 0 0 #0084FF !important;
+  -moz-box-shadow: 0 1px 0 0 #0084FF !important;
+  box-shadow: 0 1px 0 0 #0084FF !important;
+}
+
 .row {
 	height: 100vh;
 	background: url('https://neuroflowlive.com/static/img/bg1_50.235e3b76d8f3cefe13ae56b6a1e154c7.png') no-repeat center center fixed;
@@ -7,6 +14,14 @@
 .card {
 	top: 10%;
 	padding-bottom: 70px;
+}
+
+#error {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	display: none;
 }
 
 img {

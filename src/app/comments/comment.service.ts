@@ -72,7 +72,7 @@ export class CommentService {
 	}
 
 	getComments(currVidId) {
-		this.http.get('http://localhost:3000/api/comments/' + currVidId)
+		this.http.get('http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/comments/' + currVidId)
 		.subscribe((commentData: []) => {
 			this.comments = [];
 			for (var i = 0; i < commentData.length; i++) {
@@ -98,7 +98,7 @@ export class CommentService {
 	}
 
 	addComment(comm: {}) {
-		this.http.post('http://localhost:3000/api/comments/new_comment/', comm)
+		this.http.post('http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/comments/new_comment/', comm)
 		.subscribe((commentData) => {
 			this.comments.unshift(
 				{
@@ -130,21 +130,21 @@ export class CommentService {
 	}
 
 	addReply(id: string, comm: {}) {
-		this.http.post('http://localhost:3000/api/comments/comment_reply/' + id, comm)
+		this.http.post('http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/comments/comment_reply/' + id, comm)
 		.subscribe((commentData) => {
 			this.getComments(commentData['youtube_id']);
 		});
 	}
 
 	addReaction(id: string, reaction: {}) {
-		this.http.post('http://localhost:3000/api/comments/comment_reaction/' + id, reaction)
+		this.http.post('http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/comments/comment_reaction/' + id, reaction)
 		.subscribe((commentData) => {
 			this.getComments(commentData['youtube_id']);
 		});
 	}
 
 	deleteComment(id: string, youtube_id: string) {
-		this.http.post('http://localhost:3000/api/comments/delete_comment/' + id, [])
+		this.http.post('http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/comments/delete_comment/' + id, [])
 		.subscribe((commentData) => {
 			this.getComments(youtube_id);
 		});
