@@ -49,10 +49,10 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
-        <string>need camera access to take videos</string>
+        <string>Need camera access to record videos.</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
-        <string>need camera access to take videos</string>
+        <string>Need audio access to record videos.</string>
     </edit-config>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
@@ -84,7 +84,7 @@
     <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
-    <preference name="DisallowOverscroll" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
     <preference name="EnableViewportScale" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="MediaPlaybackRequiresUserAction" value="false" />

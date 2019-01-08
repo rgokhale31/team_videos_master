@@ -49,15 +49,18 @@
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     </platform>
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
-        <string>need camera access to take videos</string>
+        <string>Need camera access to record videos.</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
-        <string>need camera access to take videos</string>
+        <string>Need audio access to record videos.</string>
     </edit-config>
     <preference name="orientation" value="portrait" />
+    <preference name="DisallowOverscroll" value="true" />
     <engine name="browser" spec="^5.0.4" />
+    <engine name="android" spec="^6.3.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-media-capture" spec="^3.0.2" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-background-task" spec="git+https://github.com/leecrossley/cordova-plugin-background-task.git" />
+    <engine name="ios" spec="~4.5.5" />
 </widget>
