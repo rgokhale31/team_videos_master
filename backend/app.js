@@ -21,7 +21,7 @@ app.engine('html', require('ejs').renderFile);
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'client')));
 
-// Body Parser 
+// Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 app.use('/uploads', express.static(path.join(__dirname, "uploads")));

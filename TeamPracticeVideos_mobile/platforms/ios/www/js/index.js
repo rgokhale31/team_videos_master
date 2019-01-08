@@ -34,7 +34,7 @@ var app = {
         console.log("title");
         $.ajax({
             type: "POST",
-            url: "http://169.254.130.177:3000/api/videos/save_upload",
+            url: "http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/videos/save_upload",
             data: {"title": title, "path": path},
             success: app.win,
         });
@@ -55,8 +55,8 @@ var app = {
             };
             
             // do something interesting with the file
-            ft.upload(path, encodeURI("http://169.254.130.177:3000/api/videos/upload"), app.win, app.fail, options)
-            //backgroundtask.start(ft.upload(path, encodeURI("http://169.254.113.125:3000/api/videos/upload"), app.win, app.fail, options));
+            //ft.upload(path, encodeURI("http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/videos/upload"), app.win, app.fail, options)
+            backgroundtask.start(ft.upload(path, encodeURI("http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/videos/upload"), app.win, app.fail, options));
 
             var video_title = prompt("Please enter a title for this video:", "");
             if ( !video_title ) {

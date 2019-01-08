@@ -66,7 +66,7 @@ export class VideoService {
 		if (team == '/') {
 			team = 'penndhamaka'
 		}
-		this.http.get('http://localhost:3000/api/videos/' + team)
+		this.http.get('http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/videos/' + team)
 		.subscribe((videoData: [{}]) => {
 			for (var i = 0; i < videoData.length; i++) {
 				videoData[i]['date'] = this.timeDifference(videoData[i]['date']);
@@ -99,7 +99,7 @@ export class VideoService {
 		
 		// for the analytics
 		var user_dict = { "id": newId, "user_obj": user };
-		this.http.post('http://localhost:3000/api/videos/video/', user_dict)
+		this.http.post('http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/videos/video/', user_dict)
 		.subscribe((videoData) => {
 			this.newVidTitle.next(videoData['title']);
 			this.newVidDate.next(this.timeDifference(videoData['date']));
