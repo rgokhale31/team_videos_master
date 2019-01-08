@@ -34,7 +34,7 @@ app.use('/api/user', user);
 
 app.use((req, res, next) => {
 	res.sendFile(path.join(__dirname, "angular", "index.html"));
-})
+});
 
 app.listen(3000, function() {
 	console.log('Server started on port 3000');
