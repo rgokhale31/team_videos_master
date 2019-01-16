@@ -9,6 +9,7 @@ const routes: Routes = [
 	{ path: '', component: MainComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: '404', component: NotFoundComponent },
+	{ path: 'penndhamaka', redirectTo: '/' },
  	{ path: '**', redirectTo: '/404' }
 ];
 

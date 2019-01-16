@@ -117,15 +117,15 @@ export class CommentService {
 				}
 			);
 			this.commentsUpdated.next([...this.comments]);
-			/*
+
 			var slack_post = {
-				"text": commentData['author'] + " just added a new comment on www.teampracticevideos.com/penndhamaka"
+				"text": commentData['author'] + " just added a new comment on http://www.teampracticevideos.com/penndhamaka"
 			};
 			this.http.post('https://hooks.slack.com/services/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', slack_post)
 			.subscribe((commentData) => {
 				return;
 			});
-			*/
+
 		});
 	}
 
