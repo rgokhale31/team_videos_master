@@ -1,12 +1,16 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms"; 
+import { AuthService } from "../auth.service";
 
 @Component({
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent /*implements OnInit*/ {
+
+	constructor(public authService: AuthService) {}
+
 
 	// methods
 	getCookie(cname) {
@@ -44,6 +48,21 @@ export class LoginComponent implements OnInit {
 	}
 
 	onLogin(form: NgForm) {
+		if (form.invalid) {
+			return;
+		}
+		this.authService.login(form.value.email, form.value.password);
+	}
+
+	/*ngOnInit() {
+		if (this.getCookie("user") == "") {
+			return;
+		} else {
+			document.location.href = '/';
+		}
+	}*/
+
+	/*onLogin(form: NgForm) {
 		var person = form.value.first_name.trim() + ' ' + form.value.last_name.trim();
 		var auth = this.authenticate(person, form.value.password.trim());
 		if (auth) {
@@ -52,14 +71,11 @@ export class LoginComponent implements OnInit {
 		} else {
 			document.getElementById("error").style.display = "block";
 		}
-	}
+	}*/
 
-	ngOnInit() {
-		if (this.getCookie("user") == "") {
-			return;
-		} else {
-			document.location.href = '/';
-		}
-	}
+
+	
+
+	
 
 }

@@ -4,6 +4,9 @@ var mongojs = require('mongojs');
 var ObjectId = require('mongodb').ObjectID; 
 var db = mongojs('mongodb://eash:Issiutng123@ds017514.mlab.com:17514/dmakvids2018', ['comments']);
 
+var checkAuth = require("../middleware/check-auth");
+
+
 function formatAtandLinks(words) {
 	words = words.split(' ');
 	for (var j = 0; j < words.length; j++) {
@@ -44,7 +47,7 @@ router.get('/:id', function(req, res, next) {
 
 
 // Save Comments
-router.post('/new_comment', function(req, res, next) {
+router.post('/new_comment', checkAuth, function(req, res, next) {
 	var comment = req.body;
 	if (!comment.author || !comment.content) {
 		res.status(400);
@@ -64,7 +67,7 @@ router.post('/new_comment', function(req, res, next) {
 });
 
 // Update Comment
-router.post('/comment_reply/:id', function(req, res, next) {
+router.post('/comment_reply/:id', checkAuth, function(req, res, next) {
 	var query = { "_id": ObjectId(req.params.id) };
 	db.comments.findOne(query, function(err, comments) {
 		if (err) {
@@ -81,7 +84,7 @@ router.post('/comment_reply/:id', function(req, res, next) {
 });
 
 // Update Comment
-router.post('/comment_reaction/:id', function(req, res, next) {
+router.post('/comment_reaction/:id', checkAuth, function(req, res, next) {
 	var query = { "_id": ObjectId(req.params.id) };
 	db.comments.findOne(query, function(err, comments) {
 		if (err) {
@@ -103,7 +106,7 @@ router.post('/comment_reaction/:id', function(req, res, next) {
 
 
 // Delete Single Comment
-router.post('/delete_comment/:id', function(req, res, next) {
+router.post('/delete_comment/:id', checkAuth, function(req, res, next) {
 	db.comments.remove({_id: mongojs.ObjectId(req.params.id)}, function(err, comment) {
 		if (err) {
 			res.send(err)
@@ -113,7 +116,7 @@ router.post('/delete_comment/:id', function(req, res, next) {
 });
 
 // Update Comment
-router.put('/comments/:id', function(req, res, next) {
+router.put('/comments/:id', checkAuth, function(req, res, next) {
 	var comment = req.body;
 	var updcomment = {};
 	if (comment.title) {
