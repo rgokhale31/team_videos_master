@@ -7,7 +7,7 @@
 
 			<div class="col s8" style="padding-left: 0">
 				<b>Team Practice Videos © &nbsp; <font class="grey-text" style="font-weight: 300">just now</font></b>
-				<p class="comment" (click)="timestampCheck($event)">
+				<p class="yourComment" (click)="timestampCheck($event)">
 					What's up <font class="blue-text text-darken-2 light-blue lighten-5">@{{ this.user.split(' ').join('') }}</font>! Be the first to leave your teammates a comment, correction, or feedback on this video. You can type <font class='blue-text text-darken-2 light-blue lighten-5'>@</font> to choose people to tag, or type something like <font class='timestamp blue-text text-darken-2 pointer'>@0:03</font> to tag a timestamp in the video above. Also, we love you! 💕
 				</p>
 			</div>
@@ -30,49 +30,45 @@
 				</div>
 		-->
 				<div class="col s8" on-mouseover="showCommentActions(i)" style="padding-left: 0; margin-top: 0px;">
+					<b style="font-size: 12px;">{{ comment.author }} &nbsp; <font class="grey-text" style="font-weight: 300">{{ comment.timestamp }}</font></b><br>
 					<p class="yourComment" (click)="timestampCheck($event)" [innerHTML]="comment.content"></p>
-					<!--
-					<div class="row grey-text comment-actions-row">
-							<div [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'thumbs_up')">
-								<font class="chee-grow">👍🏽</font>
-								<font [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction-count black-text' : 'reaction-count'">
-									{{ comment.reactions.thumbs_up.length }}
-								</font>
-							</div>
+					<div class="row grey-text comment-actions-row" *ngIf="comment.content.length > 75">
+						<div [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'thumbs_up')">
+							<font class="chee-grow">👍🏽</font>
+							<font [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction-count black-text' : 'reaction-count'">
+								{{ comment.reactions.thumbs_up.length }}
+							</font>
+						</div>
 
-							<div [className]="comment.reactions.heart.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'heart')">
-								<font class="chee-grow">💙</font>
-								<font [className]="comment.reactions.heart.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
-									{{ comment.reactions.heart.length }}
-								</font>
-							</div>
+						<div [className]="comment.reactions.heart.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'heart')">
+							<font class="chee-grow">💙</font>
+							<font [className]="comment.reactions.heart.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
+								{{ comment.reactions.heart.length }}
+							</font>
+						</div>
 
-							<div [className]="comment.reactions.laughing.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'laughing')">
-								<font class="chee-grow">😂</font>
-								<font [className]="comment.reactions.laughing.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
-									{{ comment.reactions.laughing.length }}
-								</font>
-							</div>
+						<div [className]="comment.reactions.laughing.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'laughing')">
+							<font class="chee-grow">😂</font>
+							<font [className]="comment.reactions.laughing.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
+								{{ comment.reactions.laughing.length }}
+							</font>
+						</div>
 
-							<div [className]="comment.reactions.eggplant.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'eggplant')">
-								<font class="chee-grow">🍆</font>
-								<font [className]="comment.reactions.eggplant.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
-									{{ comment.reactions.eggplant.length }}
-								</font>
-							</div>
+						<div [className]="comment.reactions.eggplant.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'eggplant')">
+							<font class="chee-grow">🍆</font>
+							<font [className]="comment.reactions.eggplant.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
+								{{ comment.reactions.eggplant.length }}
+							</font>
+						</div>
 
-							<div [className]="comment.reactions.party.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'party')">
-								<font class="chee-grow">🎉</font>
-								<font [className]="comment.reactions.party.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
-									{{ comment.reactions.party.length }}
-								</font>
-							</div>
-
-							<div class="reaction-no-emoji">
-								<a href="#" class="secondary-color-text" id="reply-row-button-{{i}}" (click)="showReplyRow(i)">REPLY</a>
-							</div>
+						<div [className]="comment.reactions.party.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'party')">
+							<font class="chee-grow">🎉</font>
+							<font [className]="comment.reactions.party.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
+								{{ comment.reactions.party.length }}
+							</font>
+						</div>
 					</div>
-
+				<!--
 					<div class="row thread-row" *ngFor="let reply of comment.thread">
 						<div class="col s1 center-align">
 							<img class="circle hoverable" onerror="this.src='assets/img/anon_user.jpg'" src="assets/img/{{ reply.author.split(' ').join('') }}.jpg">
@@ -116,47 +112,42 @@
 				<div class="col s9 right-align" on-mouseover="showCommentActions(i)" style="padding-left: 0; margin-top: 0px;">
 					<p class="myComment" (click)="timestampCheck($event)" [innerHTML]="comment.content"></p>
 					<!--
-					<div class="row grey-text comment-actions-row">
-							<div [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'thumbs_up')">
-								<font class="chee-grow">👍🏽</font>
-								<font [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction-count black-text' : 'reaction-count'">
-									{{ comment.reactions.thumbs_up.length }}
-								</font>
-							</div>
+					<div class="row grey-text comment-actions-row right-align" *ngIf="comment.content.length > 75">
+						<div [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'thumbs_up')">
+							<font class="chee-grow">👍🏽</font>
+							<font [className]="comment.reactions.thumbs_up.includes(user) ? 'reaction-count black-text' : 'reaction-count'">
+								{{ comment.reactions.thumbs_up.length }}
+							</font>
+						</div>
 
-							<div [className]="comment.reactions.heart.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'heart')">
-								<font class="chee-grow">💙</font>
-								<font [className]="comment.reactions.heart.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
-									{{ comment.reactions.heart.length }}
-								</font>
-							</div>
+						<div [className]="comment.reactions.heart.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'heart')">
+							<font class="chee-grow">💙</font>
+							<font [className]="comment.reactions.heart.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
+								{{ comment.reactions.heart.length }}
+							</font>
+						</div>
 
-							<div [className]="comment.reactions.laughing.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'laughing')">
-								<font class="chee-grow">😂</font>
-								<font [className]="comment.reactions.laughing.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
-									{{ comment.reactions.laughing.length }}
-								</font>
-							</div>
+						<div [className]="comment.reactions.laughing.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'laughing')">
+							<font class="chee-grow">😂</font>
+							<font [className]="comment.reactions.laughing.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
+								{{ comment.reactions.laughing.length }}
+							</font>
+						</div>
 
-							<div [className]="comment.reactions.eggplant.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'eggplant')">
-								<font class="chee-grow">🍆</font>
-								<font [className]="comment.reactions.eggplant.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
-									{{ comment.reactions.eggplant.length }}
-								</font>
-							</div>
+						<div [className]="comment.reactions.eggplant.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'eggplant')">
+							<font class="chee-grow">🍆</font>
+							<font [className]="comment.reactions.eggplant.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
+								{{ comment.reactions.eggplant.length }}
+							</font>
+						</div>
 
-							<div [className]="comment.reactions.party.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'party')">
-								<font class="chee-grow">🎉</font>
-								<font [className]="comment.reactions.party.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
-									{{ comment.reactions.party.length }}
-								</font>
-							</div>
-
-							<div class="reaction-no-emoji">
-								<a href="#" class="secondary-color-text" id="reply-row-button-{{i}}" (click)="showReplyRow(i)">REPLY</a>
-							</div>
+						<div [className]="comment.reactions.party.includes(user) ? 'reaction reacted light-blue lighten-5' : 'reaction white'" (click)="clickedSize(comment._id, 'party')">
+							<font class="chee-grow">🎉</font>
+							<font [className]="comment.reactions.party.includes(user) ? 'reaction-count main-color-text' : 'reaction-count'">
+								{{ comment.reactions.party.length }}
+							</font>
+						</div>
 					</div>
-
 					<div class="row thread-row" *ngFor="let reply of comment.thread">
 						<div class="col s1 center-align">
 							<img class="circle hoverable" onerror="this.src='assets/img/anon_user.jpg'" src="assets/img/{{ reply.author.split(' ').join('') }}.jpg">

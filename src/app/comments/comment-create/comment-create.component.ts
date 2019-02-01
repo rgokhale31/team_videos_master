@@ -49,6 +49,11 @@ export class CommentCreateComponent {
 		document.getElementById("cancel-button").style.display = "none";
 	}
 
+	scrollList() {
+		var objDiv = document.getElementById("thelist_");
+		objDiv.scrollTop = objDiv.scrollHeight;
+	}
+
 	onAddComment(form: NgForm) {
 		this.videoService.currVidId.subscribe(id => {
 			this.currVidId = id;
@@ -77,5 +82,6 @@ export class CommentCreateComponent {
 		};
 		this.commentService.addComment(c);
 		form.resetForm();
+		this.scrollList();
 	}
 }
