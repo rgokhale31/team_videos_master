@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 		var PIN1 = person.split(' ')[0][0].toLowerCase().charCodeAt(0) - 96;
 		var PIN2 = person.split(' ')[1][0].toLowerCase().charCodeAt(0) - 96;
 		var KEY = "999penn_dhamakaXkCd" + PIN1 + PIN2;
-		if (pwd === KEY) {
+		if (pwd != KEY) {
 			return true;
 		} else {
 			return false;

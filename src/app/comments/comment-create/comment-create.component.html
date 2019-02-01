@@ -1,18 +1,9 @@
-<div class="row">
-	<form (submit)="onAddComment(commentForm)" autocomplete="off" #commentForm="ngForm"> 
-		<div class="col s1 center-align">
-			<img onerror="this.src='assets/img/anon_user.jpg'" class="circle hoverable" src="assets/img/{{ user.split(' ').join('') }}.jpg" >
-		</div>
-		<div class="input-field autocomplete col s11">
-			<input id="myInput" type="text" placeholder="Add a public comment..." autocomplete="off" (keydown)="commentService.autocompleter($event,'myInput')" (focus)="showCommentButtons()" ngModel name="content">
-		</div>
-
+<div class="divider"></div>
+<form (submit)="onAddComment(commentForm)" autocomplete="off" #commentForm="ngForm"> 
+	<div class="input-field autocomplete col s12">
+		<input id="myInput" type="text" placeholder="Add a public comment..." autocomplete="off" (keydown)="commentService.autocompleter($event,'myInput')" (focus)="showCommentButtons()" ngModel name="content">
 		<button class="btn white secondary-color-text z-depth-0" type="submit" id="comment-button">
 			Comment
 		</button>
-
-		<button type="button" class="btn white red-text z-depth-0" id="cancel-button" (click)="hideCommentButtons()">
-			Cancel
-		</button>
-	</form>
-</div>
+	</div>
+</form>

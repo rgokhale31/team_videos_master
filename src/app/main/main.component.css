@@ -12,6 +12,10 @@
 	border-right: 1px solid #D0D0D0;
 }
 
+#video-and-comments-section {
+	overflow-y: hidden;
+}
+
 h6 {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;

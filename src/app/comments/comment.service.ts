@@ -91,7 +91,7 @@ export class CommentService {
 					}
 				}
 
-				this.comments.unshift(comm);
+				this.comments.push(comm);
 			}
 			this.commentsUpdated.next([...this.comments]);
 		});
@@ -100,7 +100,7 @@ export class CommentService {
 	addComment(comm: {}) {
 		this.http.post('http://teampracticevideos-env.mhtpstgap5.us-east-1.elasticbeanstalk.com/api/comments/new_comment/', comm)
 		.subscribe((commentData) => {
-			this.comments.unshift(
+			this.comments.push(
 				{
 					_id: commentData['_id'],
 					author: commentData['author'], 
@@ -117,7 +117,7 @@ export class CommentService {
 				}
 			);
 			this.commentsUpdated.next([...this.comments]);
-
+/*
 			var slack_post = {
 				"text": commentData['author'] + " just added a new comment on http://www.teampracticevideos.com/penndhamaka"
 			};
@@ -125,7 +125,7 @@ export class CommentService {
 			.subscribe((commentData) => {
 				return;
 			});
-
+*/
 		});
 	}
 

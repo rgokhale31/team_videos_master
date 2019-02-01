@@ -33,10 +33,6 @@ export class CommentListComponent implements OnInit {
 			});
 		});
 	}
-
-	test() {
-		alert("ypo");
-	}
 	
 	showReplyRow(commentId) {
 		document.getElementById( 'reply-row-' + commentId ).style.display = 'block';
